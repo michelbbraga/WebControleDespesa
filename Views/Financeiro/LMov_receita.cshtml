@@ -1,0 +1,47 @@
+﻿@model ControleDespesa5.Models.Mov_Despesa
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+<head>
+    <meta charset="utf-8" />
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title></title>
+</head>
+<body>
+    <form class="row g-3" asp-action="Criar">
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Descrição da despesa</label>
+            <input asp-for="desc_despesa" class="form-control" />
+            <span asp-validation-for="desc_despesa" class="text-danger"></span>
+        </div>
+        <div class="col-md-4">
+            <label for="inputState" class="form-label">Tipo Despesa</label>
+            <select type="text" class="form-control" asp-for="Id_despesa">
+                @foreach (var item in ViewBag.ltdesp)
+                {
+                    <option value="@item.Id">  @item.Nomedespesa </option>    
+                }
+                <option>...</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <label for="inputAddress" class="form-label">Data da Despesa</label>
+            <input asp-for="data_mov_despesa" class="form-control" />
+            <span asp-validation-for="data_mov_despesa" class="text-danger"></span>
+        </div>
+        <div class="input-group mb-2">
+            <span class="input-group-text">R$</span>
+            <input type="text" class="form-control" aria-label="Valor da despesa em R$" asp-for="valor_des">
+
+        </div>
+        <div class="col-12">
+            <button type="submit" value="Criar" class="btn btn-primary">Salvar</button>
+        </div>
+    </form>
+
+</body>
+</html>
