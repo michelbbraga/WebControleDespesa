@@ -15,12 +15,12 @@
     <form class="row g-3" asp-action="Criar">
         <div class="col-md-6">
             <label for="inputAddress" class="form-label">Descrição da despesa</label>
-            <input asp-for="desc_despesa" class="form-control" />
-            <span asp-validation-for="desc_despesa" class="text-danger"></span>
+            <input asp-for="Desc_Despesa" class="form-control" />
+            <span asp-validation-for="Desc_Despesa" class="text-danger"></span>
         </div>
         <div class="col-md-4">
             <label for="inputState" class="form-label">Tipo Despesa</label>
-            <select type="text" class="form-control" asp-for="Id_despesa">
+            <select type="text" class="form-control" asp-for="Id_Despesa">
                 @foreach (var item in ViewBag.ltdesp)
                 {
                     <option value="@item.Id">  @item.Nomedespesa </option>    
@@ -30,12 +30,12 @@
         </div>
         <div class="col-md-6">
             <label for="inputAddress" class="form-label">Data da Despesa</label>
-            <input asp-for="data_MovimentosDR" class="form-control" />
-            <span asp-validation-for="data_MovimentosDR" class="text-danger"></span>
+            <input asp-for="Data_MovimentosDR" class="form-control" />
+            <span asp-validation-for="Data_MovimentosDR" class="text-danger"></span>
         </div>
         <div class="input-group mb-2">
             <span class="input-group-text">R$</span>
-            <input type="text" class="form-control" aria-label="Valor da despesa em R$" asp-for="valor_des">
+            <input type="text" class="form-control" aria-label="Valor da despesa em R$" asp-for="Valor_Des">
 
         </div>
         <div class="col-12">

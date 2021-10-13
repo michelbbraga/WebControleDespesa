@@ -17,7 +17,7 @@
             <select id="inputState" class="form-select">
                 @foreach (var item in ViewBag.lreceita)
                 {
-                    <option selected> @item.nomereceita</option>
+                    <option selected> @item.Nomereceita</option>
                 }
 
                 <option>...</option>
@@ -25,8 +25,8 @@
         </div>
         <div class="col-12">
             <label for="inputAddress2" class="form-label">Nova Recieta</label>
-            <input type="text" class="form-control" asp-for="nomereceita">
-            <span asp-validation-for="nomereceita" class="text-danger"></span>
+            <input type="text" class="form-control" asp-for="Nomereceita">
+            <span asp-validation-for="Nomereceita" class="text-danger"></span>
         </div>
         <div class="col-12">
             <button type="submit" value="Cria_Receita" class="btn btn-primary">Salvar</button>

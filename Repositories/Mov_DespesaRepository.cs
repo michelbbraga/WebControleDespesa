@@ -25,8 +25,8 @@ namespace ControleDespesa5.Repositories
 
         public void Grava_MovDesp(MovimentosDR MovimentosDR)
         {
-            contexto.Set<MovimentosDR>().Add(new MovimentosDR(MovimentosDR.Id_despesa, MovimentosDR.data_MovimentosDR, MovimentosDR.valor_des, MovimentosDR.desc_despesa));
-            contexto.SaveChanges();
+            //contexto.Set<MovimentosDR>().Add(new MovimentosDR(MovimentosDR.Id_Despesa, MovimentosDR.Data_MovimentosDR, MovimentosDR.Valor_Des, MovimentosDR.Desc_Despesa));
+            //contexto.SaveChanges();
         }
 
         public List<MovimentosDR> Get_Movdespesa()
@@ -43,7 +43,7 @@ namespace ControleDespesa5.Repositories
                 //var MdId = GetPagDesp();
 
                 return contexto.Set<MovimentosDR>()
-                        .Where(m => m.desc_despesa.Contains(DescDespesa))
+                        .Where(m => m.Desc_Despesa.Contains(DescDespesa))
                         .ToList();
             }
             else

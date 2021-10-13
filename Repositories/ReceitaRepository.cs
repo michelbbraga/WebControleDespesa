@@ -22,13 +22,13 @@ namespace ControleDespesa5.Repositories
         }
         public Receita Filtra_receira()
         {
-            var flreceita = dbset.Where(r => r.nomereceita == "").SingleOrDefault();
+            var flreceita = dbset.Where(r => r.Nomereceita == "").SingleOrDefault();
             return flreceita;
 
         }
         public void Grava_Receita(Receita treceita)
         {
-            contexto.Set<Receita>().Add(new Receita(treceita.nomereceita));
+            contexto.Set<Receita>().Add(new Receita(treceita.Nomereceita));
             contexto.SaveChanges();
         }
 

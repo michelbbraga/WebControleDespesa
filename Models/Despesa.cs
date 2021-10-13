@@ -16,6 +16,7 @@ namespace ControleDespesa5.Models
         [StringLength(75)]
         [Required]
         public string Nomedespesa { get; set; }
+        public int Id_User { get; set; }
 
         public Despesa(string Nomedesp)
         {            

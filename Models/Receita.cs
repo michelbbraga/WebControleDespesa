@@ -13,11 +13,13 @@ namespace ControleDespesa5.Models
         }
         [Required]
         [StringLength(75)]
-        public string nomereceita {get; set;}
+        public string Nomereceita {get; set;}
+        public int Id_User { get; set; }
+
 
         public Receita(string nomereceita)
         {
-            this.nomereceita = nomereceita;
+            this.Nomereceita = Nomereceita;
         }
     }
 }

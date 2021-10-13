@@ -34,7 +34,6 @@ namespace ControleDespesa5.Models
         [StringLength (75)]
         public string Desc_Despesa { get; set; }
         public bool Repete { get; set; }
-
         public int Duracao { get; set; }
 
         public MovimentosDR(int Id_Usuario, int Id_Despesa, int Id_Receita, 
@@ -45,6 +44,8 @@ namespace ControleDespesa5.Models
             this.Data_MovimentosDR = Data_MovimentosDR;
             this.Valor_Des = Valor_Des;
             this.Desc_Despesa = Desc_Despesa;
+            this.Repete = Repete;
+            this.Duracao = Duracao;
         }
 
         //public List<MovimentosDR> MDespesa { get; private set; } = new List<MovimentosDR>(); 
