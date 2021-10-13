@@ -38,11 +38,11 @@ namespace ControleDespesa5
             services.AddHttpContextAccessor();
             // Registra a injeção de dependencia
             services.AddTransient<IDataService, DataService>();
-            services.AddTransient<IMov_DespesaRepository, Mov_DespesaRepository>();
+            services.AddTransient<IMovimentosDRRepository, MovimentosDRRepository>();
             services.AddTransient<IDespesaRepository, DespesaRepository>();
             services.AddTransient<IReceitaRepository, ReceitaRepository>();
 
-            //services.AddTransient<IMov_DespesaRepository, Mov_DespesaRepository>;
+            //services.AddTransient<IMovimentosDRRepository, MovimentosDRRepository>;
 
             //services.AddDbContext<AplicationContext>(options => options.UseSqlServer(conectionstring);
             //services.AddControllersWithViews();

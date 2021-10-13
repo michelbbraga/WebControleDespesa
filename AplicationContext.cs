@@ -16,14 +16,14 @@ namespace ControleDespesa5
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<Mov_Despesa>().HasKey(t => t.Id);
+            modelBuilder.Entity<MovimentosDR>().HasKey(t => t.Id);
             modelBuilder.Entity<Despesa>().HasKey(t => t.Id);
             modelBuilder.Entity<Receita>().HasKey(t => t.Id);
-            modelBuilder.Entity<Mov_Despesa>().HasOne(t => t.Despesa);
+            modelBuilder.Entity<MovimentosDR>().HasOne(t => t.Despesa);
 
 
         }
-        public DbSet<ControleDespesa5.Models.Mov_Despesa> Mov_Despesa { get; set; }
+        public DbSet<ControleDespesa5.Models.MovimentosDR> MovimentosDR { get; set; }
         public DbSet<ControleDespesa5.Models.Despesa> Despesa { get; set; }
         public DbSet<ControleDespesa5.Models.Receita> Receita { get; set; }
     }

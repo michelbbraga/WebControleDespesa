@@ -5,12 +5,12 @@ using System.Collections.Generic;
 
 namespace ControleDespesa5.Repositories
 {
-    public interface IMov_DespesaRepository 
+    public interface IMovimentosDRRepository 
     {
-        void Grava_MovDesp(Mov_Despesa mov_Despesa);
+        void Grava_MovDesp(MovimentosDR MovimentosDR);
 
-        public List<Mov_Despesa> GetConMov_Despesa(string DescDespesa);
-        List<Mov_Despesa> Get_Movdespesa();
+        public List<MovimentosDR> GetConMovimentosDR(string DescDespesa);
+        List<MovimentosDR> Get_Movdespesa();
 
 
     }

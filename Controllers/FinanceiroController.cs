@@ -14,12 +14,12 @@ namespace ControleDespesa5.Controllers
     public class FinanceiroController : Controller
     {
         private readonly AplicationContext contexto;
-        private readonly IMov_DespesaRepository mov_desprepository;
+        private readonly IMovimentosDRRepository mov_desprepository;
         private readonly IDespesaRepository despesarepository;
         private readonly IReceitaRepository receitarepository;
         
 
-        public FinanceiroController(AplicationContext contexto, IMov_DespesaRepository mov_desprepository,
+        public FinanceiroController(AplicationContext contexto, IMovimentosDRRepository mov_desprepository,
             IDespesaRepository despesarepository, IReceitaRepository receitarepository)
         {
             this.contexto = contexto;
@@ -55,20 +55,20 @@ namespace ControleDespesa5.Controllers
         [HttpGet]
         public IActionResult CfiltroMov_rec(string PesquisaDespesa)
         {
-            ViewBag.ltdesp = mov_desprepository.GetConMov_Despesa(PesquisaDespesa);
-            return View(mov_desprepository.GetConMov_Despesa(PesquisaDespesa));
+            ViewBag.ltdesp = mov_desprepository.GetConMovimentosDR(PesquisaDespesa);
+            return View(mov_desprepository.GetConMovimentosDR(PesquisaDespesa));
         }
 
 
 
         [HttpPost]
-        public void Criar(int id, [Bind("Id_despesa,data_mov_despesa,valor_des,desc_despesa,")] Mov_Despesa mov_Despesa)
+        public void Criar(int id, [Bind("Id_despesa,data_MovimentosDR,valor_des,desc_despesa,")] MovimentosDR MovimentosDR)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    mov_desprepository.Grava_MovDesp(mov_Despesa);
+                    mov_desprepository.Grava_MovDesp(MovimentosDR);
                 }
                 catch (DbUpdateConcurrencyException)
                 {

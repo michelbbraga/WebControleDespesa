@@ -20,10 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ModelView\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Content Update="Views\Financeiro\CfiltroMov_rec.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -13,15 +13,15 @@ namespace ControleDespesa5
     {
         private readonly AplicationContext context;
         private readonly HttpContextAccessor contextAccessor;
-        private readonly IMov_DespesaRepository mov_DespesaRepository;
+        private readonly IMovimentosDRRepository MovimentosDRRepository;
         private readonly IDespesaRepository despesarepository;
         private readonly IReceitaRepository receitarepository;
         
-        public DataService(AplicationContext context, IMov_DespesaRepository mov_DespesaRepository, IDespesaRepository despesarepository,
+        public DataService(AplicationContext context, IMovimentosDRRepository MovimentosDRRepository, IDespesaRepository despesarepository,
             IReceitaRepository receitarepository)
         {
             this.context = context;
-            this.mov_DespesaRepository = mov_DespesaRepository;
+            this.MovimentosDRRepository = MovimentosDRRepository;
             this.despesarepository = despesarepository;
             this.receitarepository = receitarepository;
 
@@ -32,7 +32,7 @@ namespace ControleDespesa5
         public void InicializaDB()
         {
             context.Database.EnsureCreated();
-            //mov_DespesaRepository.Grava_MovDesp(Mov_Despesa mov_Despesa);
+            //MovimentosDRRepository.Grava_MovDesp(MovimentosDR MovimentosDR);
         }
     }
 }
