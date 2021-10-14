@@ -22,10 +22,11 @@ namespace ControleDespesa5.Models
         }
 
         [ForeignKey("Despesa")]
-        public int Id_Usario { get; set; }
+        public int Id_Usuario { get; set; }
         public int Id_Despesa { get; set; }
         public int Id_Receita { get; set; }
         public virtual Despesa Despesa { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
         [Required]
         public DateTime Data_MovimentosDR { get; set; }
         [Required]
@@ -39,7 +40,7 @@ namespace ControleDespesa5.Models
         public MovimentosDR(int Id_Usuario, int Id_Despesa, int Id_Receita, 
                             DateTime Data_MovimentosDR, decimal Valor_Des, string Desc_Despesa, bool Repete, int Duracao)
         {
-            this.Id_Usario = Id_Usario;
+            this.Id_Usuario = Id_Usuario;
             this.Id_Despesa = Id_Despesa;
             this.Data_MovimentosDR = Data_MovimentosDR;
             this.Valor_Des = Valor_Des;

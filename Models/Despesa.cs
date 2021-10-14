@@ -16,7 +16,9 @@ namespace ControleDespesa5.Models
         [StringLength(75)]
         [Required]
         public string Nomedespesa { get; set; }
-        public int Id_User { get; set; }
+        public int Id_Usuario { get; set; }
+
+        public virtual Usuarios Usuarios { get; set; }
 
         public Despesa(string Nomedesp)
         {            

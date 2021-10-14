@@ -14,7 +14,8 @@ namespace ControleDespesa5.Models
         [Required]
         [StringLength(75)]
         public string Nomereceita {get; set;}
-        public int Id_User { get; set; }
+        public int Id_Usuario { get; set; }
+        public virtual Usuarios Usuarios { get; set; }
 
 
         public Receita(string nomereceita)

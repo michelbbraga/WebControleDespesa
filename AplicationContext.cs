@@ -19,12 +19,18 @@ namespace ControleDespesa5
             modelBuilder.Entity<MovimentosDR>().HasKey(t => t.Id);
             modelBuilder.Entity<Despesa>().HasKey(t => t.Id);
             modelBuilder.Entity<Receita>().HasKey(t => t.Id);
+            modelBuilder.Entity<Usuarios>().HasKey(t => t.Id);
+
             modelBuilder.Entity<MovimentosDR>().HasOne(t => t.Despesa);
+            modelBuilder.Entity<MovimentosDR>().HasOne(t => t.Usuarios);
+
+            
 
 
         }
         public DbSet<ControleDespesa5.Models.MovimentosDR> MovimentosDR { get; set; }
         public DbSet<ControleDespesa5.Models.Despesa> Despesa { get; set; }
         public DbSet<ControleDespesa5.Models.Receita> Receita { get; set; }
+        public DbSet<ControleDespesa5.Models.Usuarios> Usuarios { get; set; }
     }
 }

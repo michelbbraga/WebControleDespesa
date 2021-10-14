@@ -4,14 +4,16 @@ using ControleDespesa5;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ControleDespesa5.Migrations
 {
     [DbContext(typeof(AplicationContext))]
-    partial class AplicationContextModelSnapshot : ModelSnapshot
+    [Migration("20211014010149_v2-atualizaBD20211013")]
+    partial class v2atualizaBD20211013
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
