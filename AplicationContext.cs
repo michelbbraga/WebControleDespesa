@@ -23,9 +23,8 @@ namespace ControleDespesa5
 
             modelBuilder.Entity<MovimentosDR>().HasOne(t => t.Despesa);
             modelBuilder.Entity<MovimentosDR>().HasOne(t => t.Usuarios);
-
-            
-
+            modelBuilder.Entity<Despesa>().HasOne(t => t.Usuarios);
+            modelBuilder.Entity<Receita>().HasOne(t => t.Usuarios);
 
         }
         public DbSet<ControleDespesa5.Models.MovimentosDR> MovimentosDR { get; set; }
