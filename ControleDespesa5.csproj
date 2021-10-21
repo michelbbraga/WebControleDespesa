@@ -39,6 +39,9 @@
     <Content Update="Views\Financeiro\Ldespesa.cshtml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Update="Views\Usuarios\LoginApp.cshtml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
 

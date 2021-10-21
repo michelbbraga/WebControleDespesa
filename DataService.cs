@@ -16,7 +16,8 @@ namespace ControleDespesa5
         private readonly IMovimentosDRRepository MovimentosDRRepository;
         private readonly IDespesaRepository despesarepository;
         private readonly IReceitaRepository receitarepository;
-        
+        private readonly IUsuarioRespository usuariorespository;
+
         public DataService(AplicationContext context, IMovimentosDRRepository MovimentosDRRepository, IDespesaRepository despesarepository,
             IReceitaRepository receitarepository)
         {
@@ -24,6 +25,7 @@ namespace ControleDespesa5
             this.MovimentosDRRepository = MovimentosDRRepository;
             this.despesarepository = despesarepository;
             this.receitarepository = receitarepository;
+            this.usuariorespository = usuariorespository;
 
 
 

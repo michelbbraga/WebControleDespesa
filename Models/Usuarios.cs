@@ -11,6 +11,7 @@ namespace ControleDespesa5.Models
         public Usuarios()
         {
         }
+
         [Required]
         [StringLength(45)]
         public string Nome_Usuario { get; set; }
@@ -29,7 +30,17 @@ namespace ControleDespesa5.Models
         public string Senha { get; set; }
 
         public int Perfil { get; set; }
-        
+
+        public Usuarios(string Nome_Usuario, string Sobrenome, string Login, string Email, string Senha, int Perfil)
+        {
+            this.Nome_Usuario = Nome_Usuario;
+            this.Sobrenome = Sobrenome;
+            this.Login = Login;
+            this.Email = Email;
+            this.Senha = Senha;
+            this.Perfil = Perfil;
+        }
 
     }
+
 }

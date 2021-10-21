@@ -41,6 +41,8 @@ namespace ControleDespesa5
             services.AddTransient<IMovimentosDRRepository, MovimentosDRRepository>();
             services.AddTransient<IDespesaRepository, DespesaRepository>();
             services.AddTransient<IReceitaRepository, ReceitaRepository>();
+            services.AddTransient<IUsuarioRespository, UsuarioRespository>();
+
 
             //services.AddTransient<IMovimentosDRRepository, MovimentosDRRepository>;
 
@@ -70,6 +72,7 @@ namespace ControleDespesa5
             app.UseRouting();
 
             app.UseAuthorization();
+
 
             app.UseEndpoints(endpoints =>
             {

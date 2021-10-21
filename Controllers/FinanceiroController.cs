@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using ControleDespesa5.Models;
 using ControleDespesa5.Repositories;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,7 +19,7 @@ namespace ControleDespesa5.Controllers
         private readonly IDespesaRepository despesarepository;
         private readonly IReceitaRepository receitarepository;
         
-
+        
         public FinanceiroController(AplicationContext contexto, IMovimentosDRRepository mov_desprepository,
             IDespesaRepository despesarepository, IReceitaRepository receitarepository)
         {
@@ -28,41 +29,41 @@ namespace ControleDespesa5.Controllers
             this.receitarepository = receitarepository;
 
         }
+        [Authorize]
         public IActionResult LMov_receita()
         {
             ViewBag.ltdesp = despesarepository.GetDespesas();
             return View("LMov_receita");
         }
+        
         public IActionResult Ldespesa()
         {
             ViewBag.ltdesp = despesarepository.GetDespesas();
             return View("Ldespesa");
         }
-
+        
         public IActionResult LReceita()
         {
             ViewBag.lreceita = receitarepository.GetReceita();
             return View("Lreceita");
             //return View(receitarepository.GetReceita());
         }
-
+        
         public IActionResult CMov_receita()
         {
            
             return View(mov_desprepository.Get_Movdespesa());
         }
-
+        
         [HttpGet]
         public IActionResult CfiltroMov_rec(string PesquisaDespesa)
         {
             ViewBag.ltdesp = mov_desprepository.GetConMovimentosDR(PesquisaDespesa);
             return View(mov_desprepository.GetConMovimentosDR(PesquisaDespesa));
         }
-
-
-
+        
         [HttpPost]
-        public void Criar(int id, [Bind("Id_despesa,data_MovimentosDR,valor_des,desc_despesa,")] MovimentosDR MovimentosDR)
+        public void Criar(int id, [Bind("Id_Usuario, Id_Despesa, Id_Receita, Data_MovimentosDR, Valor_Des, Desc_Despesa, Repete, Duracao")] MovimentosDR MovimentosDR)
         {
             if (ModelState.IsValid)
             {
@@ -76,6 +77,7 @@ namespace ControleDespesa5.Controllers
                 }
             }
         }
+        
         [HttpPost]
         public void Cria_Despesa(int id, [Bind("Nomedespesa")] Despesa ldespesa)
         {
@@ -89,7 +91,7 @@ namespace ControleDespesa5.Controllers
                     throw;
                 }
         }
-
+        
         [HttpPost]
         public void Cria_Receita(int i, [Bind("nomereceita")]Receita lreceita)
         {
@@ -105,6 +107,7 @@ namespace ControleDespesa5.Controllers
                 }            
             }
         }
+        
         [HttpPost]
         public void ConsultarMR()
         {

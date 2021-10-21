@@ -25,8 +25,9 @@ namespace ControleDespesa5.Repositories
 
         public void Grava_MovDesp(MovimentosDR MovimentosDR)
         {
-            //contexto.Set<MovimentosDR>().Add(new MovimentosDR(MovimentosDR.Id_Despesa, MovimentosDR.Data_MovimentosDR, MovimentosDR.Valor_Des, MovimentosDR.Desc_Despesa));
-            //contexto.SaveChanges();
+            contexto.Set<MovimentosDR>().Add(new MovimentosDR(MovimentosDR.Id_Usuario, MovimentosDR.Id_Despesa, MovimentosDR.Id_Receita,
+                            MovimentosDR.Data_MovimentosDR, MovimentosDR.Valor_Des, MovimentosDR.Desc_Despesa, MovimentosDR.Repete, MovimentosDR.Duracao));
+            contexto.SaveChanges();
         }
 
         public List<MovimentosDR> Get_Movdespesa()
