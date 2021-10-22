@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ControleDespesa5.Models;
 using ControleDespesa5.Repositories;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 namespace ControleDespesa5.Controllers
@@ -28,9 +30,18 @@ namespace ControleDespesa5.Controllers
         }
 
         
-        //[HttpPost]
-        public IActionResult LoginApp()
+        [HttpPost, ActionName("LoginApp")]
+        [ValidateAntiForgeryToken]
+        public IActionResult LoginApp([Bind ("Login,Senha")]Usuarios usuario)
         {
+            try
+            {
+                //usuariorespository.Busca_Usuario(usuario);
+            }
+            catch (DbUpdateException)
+            {
+                throw;
+            }
             //Busca_Usuario
             return View("LoginApp");
         }

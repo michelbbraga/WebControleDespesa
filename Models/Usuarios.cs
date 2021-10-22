@@ -41,6 +41,12 @@ namespace ControleDespesa5.Models
             this.Perfil = Perfil;
         }
 
+        public Usuarios(string Login, string Senha)
+        {
+            this.Login = Login;
+            this.Senha = Senha;
+        }
+
     }
 
 }
