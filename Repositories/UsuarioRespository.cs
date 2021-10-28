@@ -17,6 +17,13 @@ namespace ControleDespesa5.Repositories
             this.contextAccessor = contextAccessor;
         }
 
+        public void Grava_Usuarios(Usuarios Usuarios)
+        {
+            contexto.Set<Usuarios>().Add(new Usuarios(Usuarios.Nome_Usuario, Usuarios.Sobrenome, Usuarios.Login,
+                Usuarios.Email, Usuarios.Senha, Usuarios.Perfil));
+            contexto.SaveChanges();
+        }
+
         public Usuarios Busca_Usuario(string nomelogin, string Senha)
         {
             var FcUsuarios = dbset.Where(u => u.Login == nomelogin &&

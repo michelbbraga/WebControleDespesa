@@ -35,7 +35,7 @@ namespace ControleDespesa5.Controllers
         }
 
         
-        [HttpPost]
+        [HttpPost, ActionName("Logar")]
         //[ValidateAntiForgeryToken]
         public void Logar([Bind ("Login,Senha")]Usuarios usuarios)
         {
@@ -80,18 +80,16 @@ namespace ControleDespesa5.Controllers
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[httppost]
-        //[validateantiforgerytoken]
-        //public iactionresult create([bind("nome_usuario,sobrenome,login,email,senha,perfil,id")] usuarios usuarios)
-        //{
-        //    if (modelstate.isvalid)
-        //    {
-        //        _context.add(usuarios);
-        //        _context.savechangesasync();
-        //        return redirecttoaction(nameof(index));
-        //    }
-        //    return view(usuarios);
-        //}
+        [HttpPost, ActionName("Create")]
+        [ValidateAntiForgeryToken]
+        public IActionResult Create([Bind("Nome_Usuario,Sobrenome,Login,Email,Senha,Perfil,Id")] Usuarios usuarios)
+        {
+            if (ModelState.IsValid)
+            {
+                usuariorespository.Grava_Usuarios(usuarios);
+            }
+            return View(usuarios);
+        }
 
         // GET: Usuarios/Edit/5
         public IActionResult Edit(int? id)
@@ -126,7 +124,7 @@ namespace ControleDespesa5.Controllers
                 try
                 {
                     _context.Update(usuarios);
-                    _context.SaveChangesAsync();
+                    _context.SaveChanges();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
