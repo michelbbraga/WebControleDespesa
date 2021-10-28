@@ -29,7 +29,7 @@ namespace ControleDespesa5.Controllers
             this.receitarepository = receitarepository;
 
         }
-        [Authorize]
+        
         public IActionResult LMov_receita()
         {
             ViewBag.ltdesp = despesarepository.GetDespesas();

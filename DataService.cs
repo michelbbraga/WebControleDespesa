@@ -19,7 +19,7 @@ namespace ControleDespesa5
         private readonly IUsuarioRespository usuariorespository;
 
         public DataService(AplicationContext context, IMovimentosDRRepository MovimentosDRRepository, IDespesaRepository despesarepository,
-            IReceitaRepository receitarepository)
+            IReceitaRepository receitarepository, IUsuarioRespository usuariorespository)
         {
             this.context = context;
             this.MovimentosDRRepository = MovimentosDRRepository;

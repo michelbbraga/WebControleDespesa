@@ -17,21 +17,17 @@ namespace ControleDespesa5.Repositories
             this.contextAccessor = contextAccessor;
         }
 
-        public List<Usuarios> Busca_Usuario(string nomelogin, string senha)
+        public Usuarios Busca_Usuario(string nomelogin, string Senha)
         {
-            if (!string.IsNullOrEmpty(nomelogin))
-            {
-                var result = (from b in contexto.Usuarios
-                where b.Login.Contains(nomelogin) &&
-                b.Senha.Contains(senha)
-                select b).ToList();
+            var FcUsuarios = dbset.Where(u => u.Login == nomelogin &&
+                                         u.Senha == Senha).SingleOrDefault();
+            return FcUsuarios;
 
-                return result;
-            }
-            else
-            {
-                return contexto.Set<Usuarios>().ToList();
-            }
+                //var fcreceita = (from b in contexto.usuarios
+                //where b.login.contains(login) &&
+                //b.senha.contains(senha)
+                //select b).tolist();
+
         }
     }
 }

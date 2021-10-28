@@ -29,21 +29,28 @@ namespace ControleDespesa5.Controllers
             
         }
 
+        public IActionResult LoginApp()
+        {
+            return View("LoginApp");
+        }
+
         
-        [HttpPost, ActionName("LoginApp")]
-        [ValidateAntiForgeryToken]
-        public IActionResult LoginApp([Bind ("Login,Senha")]Usuarios usuario)
+        [HttpPost]
+        //[ValidateAntiForgeryToken]
+        public void Logar([Bind ("Login,Senha")]Usuarios usuarios)
         {
             try
             {
-                //usuariorespository.Busca_Usuario(usuario);
+                usuariorespository.Busca_Usuario(usuarios.Login, usuarios.Senha);
+                //return View("LoginApp");
+                
             }
             catch (DbUpdateException)
             {
                 throw;
             }
             //Busca_Usuario
-            return View("LoginApp");
+            //return View("LoginApp");
         }
 
         // GET: Usuarios/Details/5
@@ -73,18 +80,18 @@ namespace ControleDespesa5.Controllers
         // POST: Usuarios/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create([Bind("Nome_Usuario,Sobrenome,Login,Email,Senha,Perfil,Id")] Usuarios usuarios)
-        {
-            if (ModelState.IsValid)
-            {
-                _context.Add(usuarios);
-                _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
-            }
-            return View(usuarios);
-        }
+        //[httppost]
+        //[validateantiforgerytoken]
+        //public iactionresult create([bind("nome_usuario,sobrenome,login,email,senha,perfil,id")] usuarios usuarios)
+        //{
+        //    if (modelstate.isvalid)
+        //    {
+        //        _context.add(usuarios);
+        //        _context.savechangesasync();
+        //        return redirecttoaction(nameof(index));
+        //    }
+        //    return view(usuarios);
+        //}
 
         // GET: Usuarios/Edit/5
         public IActionResult Edit(int? id)

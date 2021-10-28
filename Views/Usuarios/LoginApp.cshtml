@@ -11,7 +11,8 @@
     <title></title>
 </head>
 <body>
-    <form class="row g-3" >
+    <form class="row g-3" asp-action="Logar">
+        
         <div class="col-md-6">
             <label for="Login" class="form-label">Usuario :</label>
             <input asp-for="Login" class="form-control" />
@@ -21,6 +22,9 @@
             <label for="Senha" class="form-label">Senha :</label>
             <input asp-for="Senha" class="form-control" />
             <span asp-validation-for="Senha" class="text-danger"></span>
+        </div>
+        <div class="col-12">
+            <button type="submit" value="Logar" class="btn btn-primary">Logar</button>
         </div>
     </form>
 

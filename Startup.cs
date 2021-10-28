@@ -93,6 +93,12 @@ namespace ControleDespesa5
                     name: "Criar",
                     pattern: "{controller=FinanceiroController}/{action=Criar}/{id?}");
             });
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "LoginApp",
+                    pattern: "{controller=UsuariosController}/{action=LoginApp}/{id?}");
+            });
             // gera o banco de dados caso não exista
             serviceProvider.GetService<IDataService>().InicializaDB();
         }

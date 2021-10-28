@@ -7,6 +7,7 @@ bin-release/
 # Other files and folders
 .settings/
 SQLQuery1.sql
+Migrations
 
 # Executables
 *.swf

@@ -5,6 +5,6 @@ namespace ControleDespesa5.Repositories
 {
     public interface IUsuarioRespository
     {
-        public List<Usuarios> Busca_Usuario(string nomelogin, string senha);
+        public Usuarios Busca_Usuario(string nomelogin, string Senha);
     }
 }
