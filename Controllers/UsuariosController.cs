@@ -44,7 +44,7 @@ namespace ControleDespesa5.Controllers
                 var ValidLogi = usuariorespository.Busca_Usuario2(usuarios.Login, usuarios.Senha);
                 if (ValidLogi == true)
                 {
-                    return View("../Financeiro/LMov_receita");
+                    return View("../Home/Index");
                 }
 
 
