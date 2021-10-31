@@ -37,20 +37,25 @@ namespace ControleDespesa5.Controllers
         
         [HttpPost, ActionName("Logar")]
         //[ValidateAntiForgeryToken]
-        public void Logar([Bind ("Login,Senha")]Usuarios usuarios)
+        public IActionResult Logar([Bind ("Login,Senha")]Usuarios usuarios)
         {
             try
             {
-                usuariorespository.Busca_Usuario(usuarios.Login, usuarios.Senha);
-                //return View("LoginApp");
-                
+                var ValidLogi = usuariorespository.Busca_Usuario2(usuarios.Login, usuarios.Senha);
+                if (ValidLogi == true)
+                {
+                    return View("../Financeiro/LMov_receita");
+                }
+
+
             }
             catch (DbUpdateException)
             {
                 throw;
+                return View("401");
             }
             //Busca_Usuario
-            //return View("LoginApp");
+            return View ("Home");
         }
 
         // GET: Usuarios/Details/5

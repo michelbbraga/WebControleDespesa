@@ -7,5 +7,7 @@ namespace ControleDespesa5.Repositories
     {
         public void Grava_Usuarios(Usuarios Usuarios);
         public Usuarios Busca_Usuario(string nomelogin, string Senha);
+
+        public bool Busca_Usuario2(string nomelogin, string Senha);
     }
 }

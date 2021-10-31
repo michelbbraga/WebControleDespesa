@@ -27,14 +27,28 @@ namespace ControleDespesa5.Repositories
         public Usuarios Busca_Usuario(string nomelogin, string Senha)
         {
             var FcUsuarios = dbset.Where(u => u.Login == nomelogin &&
-                                         u.Senha == Senha).SingleOrDefault();
-            return FcUsuarios;
+                           u.Senha == Senha).FirstOrDefault();
+                return FcUsuarios;
 
                 //var fcreceita = (from b in contexto.usuarios
                 //where b.login.contains(login) &&
                 //b.senha.contains(senha)
                 //select b).tolist();
 
+        }
+        public bool Busca_Usuario2(string nomelogin, string Senha)
+        {
+            var FcUsuarios = dbset.Where(u => u.Login == nomelogin &&
+                           u.Senha == Senha).FirstOrDefault();
+            if (FcUsuarios != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        
         }
     }
 }
